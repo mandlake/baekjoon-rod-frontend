@@ -2,11 +2,10 @@
 
 import axios from "axios";
 import { useState } from "react";
-import Link from "next/link";
 
 const SERVER = "http://localhost:8080";
 
-export default function Home() {
+const Home = () => {
   const [name, setName] = useState("");
   const url = `${SERVER}/name`;
   const data = { name: name };
@@ -37,4 +36,6 @@ export default function Home() {
       <button onClick={handleClick}>클릭</button>
     </>
   );
-}
+};
+
+export default Home;

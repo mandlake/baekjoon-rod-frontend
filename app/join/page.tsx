@@ -8,6 +8,7 @@ const Join = () => {
     id: "",
     pw: "",
     phoneNum: "",
+    address: "",
   });
 
   const handleName = (e: any) => {
@@ -26,8 +27,12 @@ const Join = () => {
     setJoin({ ...join, phoneNum: e.target.value });
   };
 
+  const handleAddress = (e: any) => {
+    setJoin({ ...join, address: e.target.value });
+  };
+
   const handleSubmit = () => {
-    alert();
+    alert(join.name + join.id + join.phoneNum + join.pw + join.address);
   };
 
   return (
@@ -41,6 +46,8 @@ const Join = () => {
       <input type="text" onChange={handlePw} />
       <p>전화번호</p>
       <input type="text" onChange={handlePhoneNum} />
+      <p>주소</p>
+      <input type="text" onChange={handleAddress} />
       <br />
       <br />
       <button onClick={handleSubmit}>회원가입</button>

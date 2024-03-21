@@ -5,7 +5,7 @@ import { useState } from "react";
 
 const SERVER = "http://localhost:8080";
 
-export default function Login() {
+const Login = () => {
   const [id, setId] = useState("");
   const [pw, setPW] = useState("");
 
@@ -48,4 +48,6 @@ export default function Login() {
       <button onClick={handleSubmit}>로그인</button>
     </>
   );
-}
+};
+
+export default Login;
