@@ -59,7 +59,7 @@ const Join = () => {
     axios
       .post(url, data, config)
       .then((res) => {
-        alert(res.data.user.name + "님 환영합니다.");
+        alert(res.data.message);
       })
       .catch((error) => {
         console.error("Error:", error);
