@@ -30,6 +30,7 @@ const Login = () => {
   const handleSubmit = () => {
     alert(id + "님 안녕하세요.");
     axios.post(url, data, config).then((res) => {
+      console.log(res.data);
       alert(
         "아이디 : " +
           JSON.stringify(res.data["id"]) +

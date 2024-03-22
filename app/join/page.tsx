@@ -3,8 +3,10 @@
 import { useState } from "react";
 import "./join.css";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const SERVER = "http://localhost:8080";
+const router = useRouter();
 
 const useInput = (i: any) => {
   const [value, setValue] = useState("");
@@ -60,6 +62,7 @@ const Join = () => {
       .post(url, data, config)
       .then((res) => {
         alert(res.data.message);
+        router.push("/login");
       })
       .catch((error) => {
         console.error("Error:", error);
