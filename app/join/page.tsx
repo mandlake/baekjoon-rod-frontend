@@ -6,7 +6,6 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 
 const SERVER = "http://localhost:8080";
-const router = useRouter();
 
 const useInput = (i: any) => {
   const [value, setValue] = useState("");
@@ -21,6 +20,7 @@ const useInput = (i: any) => {
 };
 
 const Join = () => {
+  const router = useRouter();
   const id = useInput("");
   const pw = useInput("");
   const name = useInput("");
@@ -61,7 +61,7 @@ const Join = () => {
     axios
       .post(url, data, config)
       .then((res) => {
-        alert(res.data.message);
+        alert(JSON.stringify(res.data["message"]));
         router.push("/login");
       })
       .catch((error) => {

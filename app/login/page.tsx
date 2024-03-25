@@ -2,10 +2,12 @@
 
 import axios from "axios";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 const SERVER = "http://localhost:8080";
 
 const Login = () => {
+  const router = useRouter();
   const [id, setId] = useState("");
   const [pw, setPW] = useState("");
 
@@ -28,15 +30,17 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
-    alert(id + "님 안녕하세요.");
     axios.post(url, data, config).then((res) => {
-      console.log(res.data);
-      alert(
-        "아이디 : " +
-          JSON.stringify(res.data["id"]) +
-          " 비밀번호: " +
-          JSON.stringify(res.data["pw"])
-      );
+      const message = res.data["message"];
+      if (message == "FAIL") {
+        alert("회원정보가 없습니다. 회원가입을 진행해주세요.");
+        router.push("/join");
+      } else if (message == "WRONG_PASSWORD") {
+        alert("비밀번호가 틀렸습니다. 다시 입력해주세요.");
+      } else {
+        alert("회원가입에 성공했습니다.");
+        router.push("/");
+      }
     });
   };
 
@@ -45,6 +49,7 @@ const Login = () => {
       <h2>로그인 화면</h2>
       <p>아이디</p> <input type="text" onChange={handleId} />
       <p>비밀 번호</p> <input type="text" onChange={handlePw} />
+      <br />
       <br />
       <button onClick={handleSubmit}>로그인</button>
     </>
