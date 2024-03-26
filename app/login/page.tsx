@@ -39,7 +39,7 @@ const Login = () => {
         alert("비밀번호가 틀렸습니다. 다시 입력해주세요.");
       } else {
         alert("회원가입에 성공했습니다.");
-        router.push("/");
+        router.push("/articles/new-article");
       }
     });
   };
