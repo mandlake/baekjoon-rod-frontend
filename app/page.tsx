@@ -30,10 +30,12 @@ const Home = () => {
 
   return (
     <>
-      <h1>Welcome To React World !!!</h1>
-      <input type="type" onChange={handleChange} />
-      <br />
-      <button onClick={handleClick}>클릭</button>
+      <div className="text-blue-500 text-center">
+        <h1>Welcome To React World !!!</h1>
+        <input className="bg-blue-200" type="type" onChange={handleChange} />
+        <br />
+        <button onClick={handleClick}>클릭</button>
+      </div>
     </>
   );
 };

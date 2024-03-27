@@ -1,91 +1,65 @@
 "use client";
 
-import { useRouter } from "next/navigation";
 import "./article.css";
-import axios from "axios";
-
-const SERVER = "http://localhost:8080";
 
 interface ICompany {
-  index: number;
-  title: string;
-  content: string;
-  writer: string;
-  registerData: string;
+  company: string;
+  contact: string;
+  country: string;
 }
 
-const Company = (props: ICompany) => {
+const Main = (props: ICompany) => {
   return (
     <>
-      <tr key={props.index}>
-        <td>{props.title}</td>
-        <td>{props.content}</td>
-        <td>{props.writer}</td>
-        <td>{props.registerData}</td>
+      <tr>
+        <td>{props.company}</td>
+        <td>{props.contact}</td>
+        <td>{props.country}</td>
       </tr>
     </>
   );
 };
 
 const Companies = () => {
-  const router = useRouter();
-
-  const url = `${SERVER}/api/company`;
-  const config = {
-    headers: {
-      "Cache-Control": "no-cache",
-      "Content-Type": "application/json",
-      Authorization: `Bearer blah ~`,
-      "Access-Control-Allow-Origin": "*",
-    },
-  };
-
-  // axios.get(url, config).then((res) => {
-  //   const message = res.data.message;
-  //   alert(message);
-  //   if (message == "SUCCESS") {
-  //     alert("게시글이 있습니다.");
-  //   } else if (message == "FAIL") {
-  //     alert("와");
-  //   } else {
-  //     alert("와");
-  //   }
-  // });
-
-  const companies = [
+  const articles = [
     {
-      index: 0,
-      title: "",
-      content: "",
-      writer: "",
-      registerData: "",
+      company: "Alfreds Futterkiste",
+      contact: "Maria Anders",
+      country: "Germany",
+    },
+    {
+      company: "Centro comercial Moctezuma",
+      contact: "Francisco Chang",
+      country: "Mexico",
+    },
+    { company: "Ernst Handel", contact: "Roland Mendel", country: "Austria" },
+    { company: "Island Trading", contact: "Helen Bennett", country: "UK" },
+    {
+      company: "Laughing Bacchus Winecellars",
+      contact: "Yoshi Tannamuri",
+      country: "Canada",
+    },
+    {
+      company: "Magazzini Alimentari Riuniti",
+      contact: "Giovanni Rovelli",
+      country: "Italy",
     },
   ];
-
-  const companyMap = companies.map((v) => (
-    <Company
-      key={v.index}
-      index={v.index}
-      title={v.title}
-      content={v.content}
-      writer={v.writer}
-      registerData={v.registerData}
-    />
+  const companyList = articles.map((v, i) => (
+    <Main key={i} company={v.company} contact={v.contact} country={v.country} />
   ));
-
   return (
     <>
       <h1>글쓰기</h1>
       <table>
         <thead>
           <tr>
-            <th>Title</th>
-            <th>Content</th>
-            <th>Writer</th>
-            <th>Date</th>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
           </tr>
         </thead>
-        <tbody>{companyMap}</tbody>
+        <tbody>{companyList}</tbody>
       </table>
     </>
   );
