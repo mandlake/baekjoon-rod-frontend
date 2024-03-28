@@ -2,28 +2,20 @@
 
 import axios from "axios";
 import { useState } from "react";
-
-const SERVER = "http://localhost:8080";
+import { API } from "./atoms/enums/API";
+import AxiosConfig from "./organisms/configs/axios-config";
 
 const Home = () => {
   const [name, setName] = useState("");
-  const url = `${SERVER}/name`;
+  const url = `${API.SERVER}/name`;
   const data = { name: name };
-  const config = {
-    headers: {
-      "Cache-Control": "no-cache",
-      "Content-Type": "application/json",
-      Authorization: `Bearer blah ~`,
-      "Access-Control-Allow-Origin": "*",
-    },
-  };
 
   const handleChange = (e: any) => {
     setName(e.target.value);
   };
   const handleClick = () => {
     alert(name + "님 안녕하세요.");
-    axios.post(url, data, config).then((res) => {
+    axios.post(url, data, AxiosConfig()).then((res) => {
       alert(JSON.stringify(res.data) + "님의 계정이 존재합니다.");
     });
   };

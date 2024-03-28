@@ -6,8 +6,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import AxiosConfig from "@/app/organisms/configs/axios-config";
 import { PG } from "@/app/atoms/enums/PG";
-
-const SERVER = "http://localhost:8080";
+import { API } from "@/app/atoms/enums/API";
 
 const useInput = (i: any) => {
   const [value, setValue] = useState("");
@@ -32,7 +31,7 @@ const Join = () => {
   const height = useInput("");
   const weight = useInput("");
 
-  const url = `${SERVER}/api/join`;
+  const url = `${API.SERVER}/api/join`;
   const data = {
     id: id.value,
     pw: pw.value,

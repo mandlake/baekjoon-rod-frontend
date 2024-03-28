@@ -5,15 +5,14 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import AxiosConfig from "@/app/organisms/configs/axios-config";
 import { PG } from "@/app/atoms/enums/PG";
-
-const SERVER = "http://localhost:8080";
+import { API } from "@/app/atoms/enums/API";
 
 const Login = () => {
   const router = useRouter();
   const [id, setId] = useState("");
   const [pw, setPW] = useState("");
 
-  const url = `${SERVER}/api/login`;
+  const url = `${API.SERVER}/api/login`;
   const data = { id: id, pw: pw };
 
   const handleId = (e: any) => {

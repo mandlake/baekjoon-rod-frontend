@@ -2,12 +2,6 @@
 
 import "./article.css";
 
-interface ICompany {
-  company: string;
-  contact: string;
-  country: string;
-}
-
 const Main = (props: ICompany) => {
   return (
     <>
@@ -23,30 +17,50 @@ const Main = (props: ICompany) => {
 const Companies = () => {
   const articles = [
     {
+      id: 1,
       company: "Alfreds Futterkiste",
       contact: "Maria Anders",
       country: "Germany",
     },
     {
+      id: 1,
       company: "Centro comercial Moctezuma",
       contact: "Francisco Chang",
       country: "Mexico",
     },
-    { company: "Ernst Handel", contact: "Roland Mendel", country: "Austria" },
-    { company: "Island Trading", contact: "Helen Bennett", country: "UK" },
     {
+      id: 1,
+      company: "Ernst Handel",
+      contact: "Roland Mendel",
+      country: "Austria",
+    },
+    {
+      id: 1,
+      company: "Island Trading",
+      contact: "Helen Bennett",
+      country: "UK",
+    },
+    {
+      id: 1,
       company: "Laughing Bacchus Winecellars",
       contact: "Yoshi Tannamuri",
       country: "Canada",
     },
     {
+      id: 1,
       company: "Magazzini Alimentari Riuniti",
       contact: "Giovanni Rovelli",
       country: "Italy",
     },
   ];
   const companyList = articles.map((v, i) => (
-    <Main key={i} company={v.company} contact={v.contact} country={v.country} />
+    <Main
+      key={i}
+      id={v.id}
+      company={v.company}
+      contact={v.contact}
+      country={v.country}
+    />
   ));
   return (
     <>
