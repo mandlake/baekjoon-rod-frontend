@@ -50,7 +50,7 @@ const Companies = () => {
   ));
   return (
     <>
-      <h1>글쓰기</h1>
+      <h1>게시글 목록</h1>
       <table>
         <thead>
           <tr>

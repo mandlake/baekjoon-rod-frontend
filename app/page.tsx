@@ -30,7 +30,7 @@ const Home = () => {
 
   return (
     <>
-      <div className="text-blue-500 text-center">
+      <div className="text-blue-500 flex flex-col justify-center items-center w-screen mt-10">
         <h1>Welcome To React World !!!</h1>
         <input className="bg-blue-200" type="type" onChange={handleChange} />
         <br />

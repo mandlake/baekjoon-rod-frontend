@@ -4,6 +4,8 @@ import { useState } from "react";
 import "./join.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
+import AxiosConfig from "@/app/organisms/configs/axios-config";
+import { PG } from "@/app/atoms/enums/PG";
 
 const SERVER = "http://localhost:8080";
 
@@ -41,14 +43,6 @@ const Join = () => {
     height: height.value,
     weight: weight.value,
   };
-  const config = {
-    headers: {
-      "Cache-Control": "no-cache",
-      "Content-Type": "application/json",
-      Authorization: `Bearer blah ~`,
-      "Access-Control-Allow-Origin": "*",
-    },
-  };
 
   const handleCheckboxChange = () => {};
 
@@ -59,10 +53,10 @@ const Join = () => {
   const handleSubmit = () => {
     alert(id.value);
     axios
-      .post(url, data, config)
+      .post(url, data, AxiosConfig())
       .then((res) => {
         alert(JSON.stringify(res.data["message"]));
-        router.push("/login");
+        router.push(`${PG.USER}/login`);
       })
       .catch((error) => {
         console.error("Error:", error);

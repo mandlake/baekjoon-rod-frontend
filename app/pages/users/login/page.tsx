@@ -3,6 +3,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import AxiosConfig from "@/app/organisms/configs/axios-config";
+import { PG } from "@/app/atoms/enums/PG";
 
 const SERVER = "http://localhost:8080";
 
@@ -13,14 +15,6 @@ const Login = () => {
 
   const url = `${SERVER}/api/login`;
   const data = { id: id, pw: pw };
-  const config = {
-    headers: {
-      "Cache-Control": "no-cache",
-      "Content-Type": "application/json",
-      Authorization: `Bearer blah ~`,
-      "Access-Control-Allow-Origin": "*",
-    },
-  };
 
   const handleId = (e: any) => {
     setId(e.target.value);
@@ -30,7 +24,7 @@ const Login = () => {
   };
 
   const handleSubmit = () => {
-    axios.post(url, data, config).then((res) => {
+    axios.post(url, data, AxiosConfig()).then((res) => {
       const message = res.data["message"];
       if (message == "FAIL") {
         alert("회원정보가 없습니다. 회원가입을 진행해주세요.");
@@ -39,7 +33,7 @@ const Login = () => {
         alert("비밀번호가 틀렸습니다. 다시 입력해주세요.");
       } else {
         alert("회원가입에 성공했습니다.");
-        router.push("/articles/new-article");
+        router.push(`${PG.BOARD}/article`);
       }
     });
   };

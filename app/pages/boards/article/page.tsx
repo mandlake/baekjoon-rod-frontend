@@ -1,41 +1,25 @@
 "use client";
-import { useEffect, useState } from "react";
-import "./article.css";
-import axios from "axios";
-import { DataGrid } from "@mui/x-data-grid";
-import { useRouter } from "next/navigation";
-const SERVER = "http://localhost:8080";
 
-interface IArticle {
-  id: number;
-  title: string;
-  content: string;
-  writer: string;
-  registerDate: string;
-}
+import AxiosConfig from "@/app/organisms/configs/axios-config";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import { API } from "@/app/atoms/enums/API";
+import axios from "axios";
+import "./article.css";
 
 const Articles = () => {
   const router = useRouter();
   const [articles, setArticles] = useState<IArticle[]>([]);
 
-  const url = `${SERVER}/api/articles`;
-  const config = {
-    headers: {
-      "Cache-Control": "no-cache",
-      "Content-Type": "application/json",
-      Authorization: `Bearer blah ~`,
-      "Access-Control-Allow-Origin": "*",
-    },
-  };
+  const url = `${API.SERVER}/api/articles`;
 
   const fetchData = async () => {
     try {
-      const res = await axios.get(url, config);
+      const res = await axios.get(url, AxiosConfig());
       const message = res.data.message;
 
       if (message === "SUCCESS") {
         console.log("게시글이 있습니다");
-
         const result = res.data.result;
         for (let i of result) {
           console.log(i);
@@ -55,7 +39,7 @@ const Articles = () => {
 
   return (
     <>
-      <h2>HTML Table</h2>
+      <h2>게시글 목록</h2>
 
       <table>
         <thead>
