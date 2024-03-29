@@ -5,8 +5,9 @@ export const getAllArticles: any = createAsyncThunk(
   "articles/getAllArticles",
   async (page: number) => {
     console.log("getArticles page : " + page);
-    const { message, result }: any = await getAllArticlesAPI(page);
-    console.log(message);
-    console.log(result);
+    const data: any = await getAllArticlesAPI(1);
+
+    const { message, result }: any = data;
+    return data;
   }
 );

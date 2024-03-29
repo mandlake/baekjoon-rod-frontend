@@ -1,4 +1,4 @@
-const initialState: IArticle = {
+export const initialState: IArticle = {
   id: 0,
   title: "",
   content: "",
