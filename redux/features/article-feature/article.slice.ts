@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getArticles } from "./article.service";
+import { getAllArticles } from "./article.service";
 
-const articleThunks = [getArticles];
+const articleThunks = [getAllArticles];
 
 const status = {
   pending: "pending",

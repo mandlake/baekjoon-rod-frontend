@@ -1,15 +1,16 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { NextPage } from "next";
-import { getArticles } from "@/redux/features/article-feature/article.service";
+import { getAllArticles } from "@/redux/features/article-feature/article.service";
 import { useDispatch } from "react-redux";
 
 const ArticlesPage: NextPage = () => {
   const dispatch = useDispatch();
+  const [articles, setArticles] = useState<IArticle[]>([]);
 
   useEffect(() => {
-    dispatch(getArticles());
+    dispatch(getAllArticles());
   }, []);
 
   return (
@@ -25,7 +26,16 @@ const ArticlesPage: NextPage = () => {
             <th>등록일</th>
           </tr>
         </thead>
-        <tbody></tbody>
+        <tbody>
+          {articles.map((v) => (
+            <tr key={v.id}>
+              <td>{v.title}</td>
+              <td>{v.content}</td>
+              <td>{v.writer}</td>
+              <td>{v.registerDate}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </>
   );
