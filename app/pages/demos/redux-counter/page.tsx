@@ -1,8 +1,10 @@
 "use client";
 
-import ReduxCounter from "@/store/features/counter/index";
+import ReduxCounter from "@/app/pages/demos/redux-counter";
+import { NextPage } from "next";
 
-const Counter = () => {
+
+const CounterPage: NextPage = () => {
   return (
     <>
       <ReduxCounter />
@@ -10,4 +12,4 @@ const Counter = () => {
   );
 };
 
-export default Counter;
+export default CounterPage;

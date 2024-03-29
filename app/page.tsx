@@ -1,16 +1,17 @@
 "use client";
 
-import axios from "axios";
 import { useState } from "react";
-import { API } from "./atoms/enums/API";
-import AxiosConfig from "./organisms/configs/axios-config";
+import axios from "axios";
 import Link from "next/link";
-import { PG } from "./atoms/enums/PG";
+import { PG } from "../redux/common/enums/PG";
+import { API } from "../redux/common/enums/API";
+import AxiosConfig from "../redux/common/configs/axios-config";
 
 const Home = () => {
   const [name, setName] = useState("");
   const url = `${API.SERVER}/name`;
   const data = { name: name };
+  AxiosConfig;
 
   const handleChange = (e: any) => {
     setName(e.target.value);
@@ -32,6 +33,7 @@ const Home = () => {
         <br />
         <Link href={`${PG.USER}/login`}>로그인</Link>
         <Link href={`${PG.USER}/join`}>회원가입</Link>
+        <Link href={`${PG.BOARD}/articles`}>보드</Link>
         <Link href={`${PG.DEMO}/redux-counter`}>리덕스 카운터</Link>
       </div>
     </>

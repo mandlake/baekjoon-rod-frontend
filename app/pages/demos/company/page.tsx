@@ -1,5 +1,6 @@
 "use client";
 
+import { NextPage } from "next";
 import "./article.css";
 
 const Main = (props: ICompany) => {
@@ -14,7 +15,7 @@ const Main = (props: ICompany) => {
   );
 };
 
-const Companies = () => {
+const CompaniesPage: NextPage = () => {
   const articles = [
     {
       id: 1,
@@ -79,4 +80,4 @@ const Companies = () => {
   );
 };
 
-export default Companies;
+export default CompaniesPage;

@@ -3,10 +3,11 @@
 import { Box } from "@mui/material";
 import "./article.css";
 import { DataGrid } from "@mui/x-data-grid";
-import MuiCompanyColumns from "@/app/organisms/columns/mui-company-columns";
-import MuiCompanyRows from "@/app/organisms/rows/mui-company-rows";
+import MuiCompanyColumns from "@/app/components/columns/mui-company-columns";
+import MuiCompanyRows from "@/app/components/rows/mui-company-rows";
+import { NextPage } from "next";
 
-const Companies = () => {
+const MuiCompaniesPage: NextPage = () => {
   const columns = MuiCompanyColumns({} as ICompany);
   const rows = MuiCompanyRows();
 
@@ -33,4 +34,4 @@ const Companies = () => {
   );
 };
 
-export default Companies;
+export default MuiCompaniesPage;

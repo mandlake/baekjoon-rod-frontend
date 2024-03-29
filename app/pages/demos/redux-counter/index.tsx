@@ -3,7 +3,11 @@
 import AddIcon from "@mui/icons-material/Add";
 import RemoveIcon from "@mui/icons-material/Remove";
 import { useSelector, useDispatch } from "react-redux";
-import { handleplus, handleMinus, getCount } from "./counter.slice";
+import {
+  handlePlus,
+  handleMinus,
+  getCount,
+} from "@/redux/features/counter-feature/counter.slice";
 import Link from "next/link";
 
 const ReduxCounter = () => {
@@ -17,9 +21,9 @@ const ReduxCounter = () => {
         <h1 className="font-semibold">Counter : {count}</h1>
         <div className="flex gap-4 mt-3 text-black">
           <AddIcon
-            className="border-2 p-2 border-black bg-slate-100 w-11 h-11"
+            className="border-2 border-black bg-slate-100 w-11 h-11"
             onClick={() => {
-              dispatch(handleplus());
+              dispatch(handlePlus());
             }}
           />
           <RemoveIcon

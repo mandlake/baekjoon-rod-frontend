@@ -3,11 +3,12 @@
 import axios from "axios";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import AxiosConfig from "@/app/organisms/configs/axios-config";
-import { PG } from "@/app/atoms/enums/PG";
-import { API } from "@/app/atoms/enums/API";
+import { API } from "@/redux/common/enums/API";
+import AxiosConfig from "@/redux/common/configs/axios-config";
+import { PG } from "@/redux/common/enums/PG";
+import { NextPage } from "next";
 
-const Login = () => {
+const LoginPage: NextPage = () => {
   const router = useRouter();
   const [id, setId] = useState("");
   const [pw, setPW] = useState("");
@@ -49,4 +50,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

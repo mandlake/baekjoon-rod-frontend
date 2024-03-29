@@ -4,9 +4,10 @@ import { useState } from "react";
 import "./join.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import AxiosConfig from "@/app/organisms/configs/axios-config";
-import { PG } from "@/app/atoms/enums/PG";
-import { API } from "@/app/atoms/enums/API";
+import { API } from "@/redux/common/enums/API";
+import AxiosConfig from "@/redux/common/configs/axios-config";
+import { PG } from "@/redux/common/enums/PG";
+import { NextPage } from "next";
 
 const useInput = (i: any) => {
   const [value, setValue] = useState("");
@@ -20,7 +21,7 @@ const useInput = (i: any) => {
   return { value, onChange };
 };
 
-const Join = () => {
+const JoinPage: NextPage = () => {
   const router = useRouter();
   const id = useInput("");
   const pw = useInput("");
@@ -194,4 +195,4 @@ const Join = () => {
   );
 };
 
-export default Join;
+export default JoinPage;
