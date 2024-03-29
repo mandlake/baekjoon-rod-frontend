@@ -11,7 +11,7 @@ const Articles = () => {
   const router = useRouter();
   const [articles, setArticles] = useState<IArticle[]>([]);
 
-  const url = `${API.SERVER}/api/articles`;
+  const url = `${API.SERVER}/articles`;
 
   const fetchData = async () => {
     try {
@@ -19,6 +19,7 @@ const Articles = () => {
       const message = res.data.message;
 
       if (message === "SUCCESS") {
+        console.log(res.data);
         console.log("게시글이 있습니다");
         const result = res.data.result;
         for (let i of result) {

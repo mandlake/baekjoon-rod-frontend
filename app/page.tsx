@@ -4,6 +4,8 @@ import axios from "axios";
 import { useState } from "react";
 import { API } from "./atoms/enums/API";
 import AxiosConfig from "./organisms/configs/axios-config";
+import Link from "next/link";
+import { PG } from "./atoms/enums/PG";
 
 const Home = () => {
   const [name, setName] = useState("");
@@ -27,6 +29,10 @@ const Home = () => {
         <input className="bg-blue-200" type="type" onChange={handleChange} />
         <br />
         <button onClick={handleClick}>클릭</button>
+        <br />
+        <Link href={`${PG.USER}/login`}>로그인</Link>
+        <Link href={`${PG.USER}/join`}>회원가입</Link>
+        <Link href={`${PG.DEMO}/redux-counter`}>리덕스 카운터</Link>
       </div>
     </>
   );

@@ -181,7 +181,11 @@ const Join = () => {
           <button type="button" className="cancelbtn" onClick={handleCancle}>
             Cancel
           </button>
-          <button type="submit" className="signupbtn" onClick={handleSubmit}>
+          <button
+            type="submit"
+            className="signupbtn bg-green-500"
+            onClick={handleSubmit}
+          >
             Sign Up
           </button>
         </div>

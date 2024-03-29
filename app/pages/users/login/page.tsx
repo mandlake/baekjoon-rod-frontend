@@ -12,7 +12,7 @@ const Login = () => {
   const [id, setId] = useState("");
   const [pw, setPW] = useState("");
 
-  const url = `${API.SERVER}/api/login`;
+  const url = `${API.SERVER}/login`;
   const data = { id: id, pw: pw };
 
   const handleId = (e: any) => {
