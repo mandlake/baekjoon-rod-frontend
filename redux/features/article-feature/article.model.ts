@@ -4,4 +4,5 @@ interface IArticle {
   content: string;
   writer: string;
   registerDate: string;
+  array: [];
 }

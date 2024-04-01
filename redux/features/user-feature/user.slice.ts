@@ -1,23 +1,40 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { initialState } from "./user.init";
+import { fetchAllUsers } from "./user.service";
+import { stat } from "fs";
 
-const initialState: IUser = {
-  id: 0,
-  username: "",
-  password: "",
-  name: "",
-  phone_number: "",
-  address: "",
-  job: "",
-  height: 0,
-  weight: 0,
+const userThunks = [fetchAllUsers];
+
+const status = {
+  pending: "pending",
+  fulfilled: "fulfilled",
+  rejected: "rejected",
 };
 
-export const articleSlice = createSlice({
-  name: "user",
+const handleFulfilled = (state: any, { payload }: any) => {
+  state.array = payload;
+};
+
+const handlePending = (state: any) => {};
+
+const handleRejected = (state: any) => {};
+
+export const userSlice = createSlice({
+  name: "users",
   initialState,
   reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchAllUsers.fulfilled, handleFulfilled)
+      .addCase(fetchAllUsers.pending, handlePending)
+      .addCase(fetchAllUsers.rejected, handleRejected);
+  },
 });
 
-export const {} = articleSlice.actions;
+export const getAllUsers = (state: any) => {
+  return state.user.array.result;
+};
 
-export default articleSlice.reducer;
+export const {} = userSlice.actions;
+
+export default userSlice.reducer;

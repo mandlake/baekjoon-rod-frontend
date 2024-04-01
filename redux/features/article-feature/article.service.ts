@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { getAllArticlesAPI } from "./article.api";
 
-export const getAllArticles: any = createAsyncThunk(
-  "articles/getAllArticles",
+export const fetchAllArticles: any = createAsyncThunk(
+  "article-feature/fetchAllArticles",
   async (page: number) => {
     console.log("getArticles page : " + page);
     const data: any = await getAllArticlesAPI(1);

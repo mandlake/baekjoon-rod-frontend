@@ -8,4 +8,5 @@ interface IUser {
   job: string;
   height: number;
   weight: number;
+  array: [];
 }

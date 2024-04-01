@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import "./join.css";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { API } from "@/redux/common/enums/API";

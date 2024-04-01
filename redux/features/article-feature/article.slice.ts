@@ -1,8 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getAllArticles } from "./article.service";
 import { initialState } from "./article.init";
+import { fetchAllArticles } from "./article.service";
 
-const articleThunks = [getAllArticles];
+const articleThunks = [fetchAllArticles];
 
 const status = {
   pending: "pending",
@@ -11,7 +11,7 @@ const status = {
 };
 
 const handleFulfilled = (state: any, { payload }: any) => {
-  console.log(payload);
+  state.array = payload;
 };
 
 const handlePending = (state: any) => {};
@@ -19,15 +19,22 @@ const handlePending = (state: any) => {};
 const handleRejected = (state: any) => {};
 
 export const articleSlice = createSlice({
-  name: "article",
-  initialState: initialState,
+  name: "articles",
+  initialState,
   reducers: {},
   extraReducers: (builder) => {
     const { pending, rejected } = status;
 
-    builder.addCase(getAllArticles.fulfilled, handleFulfilled);
+    builder
+      .addCase(fetchAllArticles.fulfilled, handleFulfilled)
+      .addCase(pending, handlePending)
+      .addCase(rejected, handleRejected);
   },
 });
+
+export const getAllArticles = (state: any) => {
+  return state.article.array.result;
+};
 
 export const {} = articleSlice.actions;
 
