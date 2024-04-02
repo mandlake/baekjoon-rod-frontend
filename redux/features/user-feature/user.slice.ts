@@ -1,9 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { initialState } from "./user.init";
 import { fetchAllUsers } from "./user.service";
-import { stat } from "fs";
-
-const userThunks = [fetchAllUsers];
 
 const status = {
   pending: "pending",
@@ -13,11 +10,16 @@ const status = {
 
 const handleFulfilled = (state: any, { payload }: any) => {
   state.array = payload;
+  console.log(status.fulfilled);
 };
 
-const handlePending = (state: any) => {};
+const handlePending = (state: any) => {
+  console.log(status.pending);
+};
 
-const handleRejected = (state: any) => {};
+const handleRejected = (state: any) => {
+  console.log(status.rejected);
+};
 
 export const userSlice = createSlice({
   name: "users",

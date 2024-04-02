@@ -6,7 +6,6 @@ export const fetchAllUsers: any = createAsyncThunk(
   async (page: number) => {
     console.log("getUsers Page: " + page);
     const data: any = await getAllUsersAPI(1);
-    const { message, result } = data;
     return data;
   }
 );

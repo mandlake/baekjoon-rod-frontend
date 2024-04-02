@@ -1,6 +1,5 @@
 "use client";
 import { useState } from "react";
-import Link from "next/link";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -23,7 +22,7 @@ const pageHref = [
   `${PG.USER}/login`,
   `${PG.DEMO}/redux-counter`,
   `${PG.BOARD}/articles`,
-  `${PG.BOARD}/user-articles`,
+  `${PG.USER}`,
 ];
 
 function Header() {

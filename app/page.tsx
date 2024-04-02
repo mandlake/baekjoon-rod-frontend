@@ -2,8 +2,6 @@
 
 import { useState } from "react";
 import axios from "axios";
-import Link from "next/link";
-import { PG } from "../redux/common/enums/PG";
 import { API } from "../redux/common/enums/API";
 import AxiosConfig from "../redux/common/configs/axios-config";
 
@@ -25,8 +23,10 @@ const Home = () => {
 
   return (
     <>
-      <div className="text-blue-500 flex flex-col justify-center items-center w-screen mt-10">
-        <h1>Welcome To React World !!!</h1>
+      <div className="text-blue-400 flex flex-col justify-center items-center w-screen mt-10">
+        <h1 className="font-semibold text-[28px]">
+          Welcome To React World !!!
+        </h1>
         <input className="bg-blue-200" type="type" onChange={handleChange} />
         <br />
         <button onClick={handleClick}>클릭</button>
